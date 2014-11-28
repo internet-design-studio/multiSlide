@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<style type="text/css">
+		body {
+			background: #000;
+		}
+
+		.wrap-view {
+			position: absolute;
+			left: 10%;
+			top: 10%;
+			right: 10%;
+			bottom: 10%;
+			overflow: hidden;
+		}
+
+
+		/*	PAGING
+			----------------------------------------------------------------- */
+		.view-slide-nav-wrapper {
+			height: 100%;
+			position: fixed;
+			right: 12%;
+			top:0;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		.view-slide-nav-wrapper:before {
+			height: 100%;
+			display: inline-block;
+			vertical-align: middle;
+			content: '';
+		}
+		.view-slide-nav {
+			display: inline-block;
+			white-space: normal;
+			vertical-align: middle;
+		}
+		.nav-item {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #4f4f4f;
+			background: rgba(79,79,79,0.4);
+			margin: 0 0 10px 0;
+			cursor: pointer;
+		}
+		.nav-item.active {
+			background: #fff;
+			background: rgba(255,255,255,0.7);
+		}
+	</style>
+</head>
+<body>
+
+
+<!--REQUIRED-->
+<link rel="stylesheet" href="multiSlide.css">
+<script src="lib/jquery-1.10.2.min.js"></script>
+<script src="lib/jquery.animate-enhanced.js"></script>
+<script src="lib/jquery.easing.1.3.min.js"></script>
+<script src="lib/jquery.mousewheel.js"></script>
+<script src="multiSlide.js"></script>
+<!--REQUIRED-->
+
+<script type="text/javascript">
+	$(function () {
+
+		var multiSlide = $(".viewport-block").multiSlide({
+			slideTime: 700,							// время перекючения слайда
+			easingType: "swing",  					// или функцию Безье
+			paging: ".view-slide-nav .nav-item",	// класс элемента навигации
+			activeSlideCss: "active",				// CSS класс для активного слайда
+			beforeShow: function(currentSlide, newIndex){
+			},
+			afterShow: function(newIndex){
+			}
+		});
+	});
+</script>
+
+<div class="wrap-view">
+	<div class="viewport-block">
+		<div class="view-slide active" style="background:#000 url('images/s-1.jpg') no-repeat center center; background-size: cover;">
+			1 slide
+		</div>
+		<div class="view-slide" style="background:#000 url('images/s-2.jpg') no-repeat center center; background-size: cover;">
+			2 slide
+		</div>
+		<div class="view-slide" style="background:#000 url('images/s-3.jpg') no-repeat center center; background-size: cover;">
+			3 slide
+		</div>
+	</div>
+</div>
+
+<div class="view-slide-nav-wrapper">
+	<div class="view-slide-nav">
+		<div class="nav-item active"></div>
+		<div class="nav-item"></div>
+		<div class="nav-item"></div>
+	</div>
+</div>
+</body>
+</html>
+
